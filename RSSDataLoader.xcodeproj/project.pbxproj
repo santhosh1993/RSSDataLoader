@@ -10,6 +10,9 @@
 		B58DE44B22CCD985001A80BB /* RSSDataLoader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B58DE44122CCD985001A80BB /* RSSDataLoader.framework */; };
 		B58DE45022CCD985001A80BB /* RSSDataLoaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58DE44F22CCD985001A80BB /* RSSDataLoaderTests.swift */; };
 		B58DE45222CCD985001A80BB /* RSSDataLoader.h in Headers */ = {isa = PBXBuildFile; fileRef = B58DE44422CCD985001A80BB /* RSSDataLoader.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B58DE45D22CCDB69001A80BB /* RSSDataLoader.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B58DE45B22CCDB69001A80BB /* RSSDataLoader.xcdatamodeld */; };
+		B58DE46C22CCDF06001A80BB /* RSSDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58DE46B22CCDF06001A80BB /* RSSDataLoader.swift */; };
+		B58DE46E22CDDF77001A80BB /* CoreDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58DE46D22CDDF77001A80BB /* CoreDataHandler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +32,9 @@
 		B58DE44A22CCD985001A80BB /* RSSDataLoaderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RSSDataLoaderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B58DE44F22CCD985001A80BB /* RSSDataLoaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSSDataLoaderTests.swift; sourceTree = "<group>"; };
 		B58DE45122CCD985001A80BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B58DE45C22CCDB69001A80BB /* RSSDataLoader.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RSSDataLoader.xcdatamodel; sourceTree = "<group>"; };
+		B58DE46B22CCDF06001A80BB /* RSSDataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSSDataLoader.swift; sourceTree = "<group>"; };
+		B58DE46D22CDDF77001A80BB /* CoreDataHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHandler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +79,9 @@
 			children = (
 				B58DE44422CCD985001A80BB /* RSSDataLoader.h */,
 				B58DE44522CCD985001A80BB /* Info.plist */,
+				B58DE45B22CCDB69001A80BB /* RSSDataLoader.xcdatamodeld */,
+				B58DE46B22CCDF06001A80BB /* RSSDataLoader.swift */,
+				B58DE46D22CDDF77001A80BB /* CoreDataHandler.swift */,
 			);
 			path = RSSDataLoader;
 			sourceTree = "<group>";
@@ -148,6 +157,7 @@
 				TargetAttributes = {
 					B58DE44022CCD985001A80BB = {
 						CreatedOnToolsVersion = 10.2.1;
+						LastSwiftMigration = 1020;
 					};
 					B58DE44922CCD985001A80BB = {
 						CreatedOnToolsVersion = 10.2.1;
@@ -194,6 +204,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B58DE45D22CCDB69001A80BB /* RSSDataLoader.xcdatamodeld in Sources */,
+				B58DE46E22CDDF77001A80BB /* CoreDataHandler.swift in Sources */,
+				B58DE46C22CCDF06001A80BB /* RSSDataLoader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,6 +354,7 @@
 		B58DE45622CCD985001A80BB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -357,6 +371,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = Epam.RSSDataLoader;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -365,6 +380,7 @@
 		B58DE45722CCD985001A80BB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -389,6 +405,7 @@
 		B58DE45922CCD985001A80BB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = RSSDataLoaderTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -406,6 +423,7 @@
 		B58DE45A22CCD985001A80BB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = RSSDataLoaderTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -451,6 +469,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		B58DE45B22CCDB69001A80BB /* RSSDataLoader.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				B58DE45C22CCDB69001A80BB /* RSSDataLoader.xcdatamodel */,
+			);
+			currentVersion = B58DE45C22CCDB69001A80BB /* RSSDataLoader.xcdatamodel */;
+			path = RSSDataLoader.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = B58DE43822CCD985001A80BB /* Project object */;
 }
