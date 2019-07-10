@@ -8,15 +8,32 @@
 
 import Foundation
 
-public class RSSDataLoader {
+public protocol RSSDataLoaderCallback {
+    func completion(status:Bool)
+}
+
+public class RSSDataLoader: NSObject {
     static let shared = RSSDataLoader()
     let dataHandler = CoreDataHandler()
+    let parser = RSSDataParser()
+    var callBack:RSSDataLoaderCallback?
     
-    public static func addNewRSSFeed(url:String, title:String,completion:(Bool)->Void){
-        self.shared.dataHandler.addUrl(url: url, title: title) { (status) in
-            completion(status)
+    override init() {
+        super.init()
+    }
+    
+    public static func addNewRSSFeed(url:String, title:String, callBack:RSSDataLoaderCallback){
+        self.shared.callBack = callBack
+        self.shared.dataHandler.addUrl(url: url, title: title) {(status) in
+            if let requestUrl = URL(string: url){
+                self.shared.parser.startParsingWithContentsOfUrl(rssUrl: requestUrl, with: { (status) in
+                    callBack.completion(status: status)
+                    print(self.shared.parser.parsedData)
+                })
+            }
+            else {
+                callBack.completion(status: status)
+            }
         }
     }
 }
-
-

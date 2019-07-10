@@ -7,12 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B54545DD22D4A2E100132E6B /* RSSDataParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54545DC22D4A2E100132E6B /* RSSDataParser.swift */; };
 		B58DE44B22CCD985001A80BB /* RSSDataLoader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B58DE44122CCD985001A80BB /* RSSDataLoader.framework */; };
 		B58DE45022CCD985001A80BB /* RSSDataLoaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58DE44F22CCD985001A80BB /* RSSDataLoaderTests.swift */; };
 		B58DE45222CCD985001A80BB /* RSSDataLoader.h in Headers */ = {isa = PBXBuildFile; fileRef = B58DE44422CCD985001A80BB /* RSSDataLoader.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B58DE45D22CCDB69001A80BB /* RSSDataLoader.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B58DE45B22CCDB69001A80BB /* RSSDataLoader.xcdatamodeld */; };
 		B58DE46C22CCDF06001A80BB /* RSSDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58DE46B22CCDF06001A80BB /* RSSDataLoader.swift */; };
 		B58DE46E22CDDF77001A80BB /* CoreDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58DE46D22CDDF77001A80BB /* CoreDataHandler.swift */; };
+		B5CF275D22D346FC00E4979B /* ServiceRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CF275C22D346FC00E4979B /* ServiceRequest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,6 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B54545DC22D4A2E100132E6B /* RSSDataParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSSDataParser.swift; sourceTree = "<group>"; };
 		B58DE44122CCD985001A80BB /* RSSDataLoader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RSSDataLoader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B58DE44422CCD985001A80BB /* RSSDataLoader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RSSDataLoader.h; sourceTree = "<group>"; };
 		B58DE44522CCD985001A80BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -35,6 +38,8 @@
 		B58DE45C22CCDB69001A80BB /* RSSDataLoader.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RSSDataLoader.xcdatamodel; sourceTree = "<group>"; };
 		B58DE46B22CCDF06001A80BB /* RSSDataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSSDataLoader.swift; sourceTree = "<group>"; };
 		B58DE46D22CDDF77001A80BB /* CoreDataHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHandler.swift; sourceTree = "<group>"; };
+		B5CF275C22D346FC00E4979B /* ServiceRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceRequest.swift; sourceTree = "<group>"; };
+		B5DB49AD22D354620076A0F1 /* XMLToDictionaryParser.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = XMLToDictionaryParser.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +67,7 @@
 				B58DE44322CCD985001A80BB /* RSSDataLoader */,
 				B58DE44E22CCD985001A80BB /* RSSDataLoaderTests */,
 				B58DE44222CCD985001A80BB /* Products */,
+				B5DB49AC22D354620076A0F1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -82,6 +88,8 @@
 				B58DE45B22CCDB69001A80BB /* RSSDataLoader.xcdatamodeld */,
 				B58DE46B22CCDF06001A80BB /* RSSDataLoader.swift */,
 				B58DE46D22CDDF77001A80BB /* CoreDataHandler.swift */,
+				B5CF275C22D346FC00E4979B /* ServiceRequest.swift */,
+				B54545DC22D4A2E100132E6B /* RSSDataParser.swift */,
 			);
 			path = RSSDataLoader;
 			sourceTree = "<group>";
@@ -93,6 +101,14 @@
 				B58DE45122CCD985001A80BB /* Info.plist */,
 			);
 			path = RSSDataLoaderTests;
+			sourceTree = "<group>";
+		};
+		B5DB49AC22D354620076A0F1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B5DB49AD22D354620076A0F1 /* XMLToDictionaryParser.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -205,6 +221,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				B58DE45D22CCDB69001A80BB /* RSSDataLoader.xcdatamodeld in Sources */,
+				B5CF275D22D346FC00E4979B /* ServiceRequest.swift in Sources */,
+				B54545DD22D4A2E100132E6B /* RSSDataParser.swift in Sources */,
 				B58DE46E22CDDF77001A80BB /* CoreDataHandler.swift in Sources */,
 				B58DE46C22CCDF06001A80BB /* RSSDataLoader.swift in Sources */,
 			);

@@ -73,9 +73,9 @@ extension CoreDataHandler {
 }
 
 extension CoreDataHandler {
-    func addUrl(url:String, title:String, completion:(Bool)->Void) {
+    func addUrl(url:String, title:String, completion:@escaping (Bool)->Void) {
         
-        queue.sync { [weak self] in
+        queue.async { [weak self] in
             let feedUrls = self?.fetchTheData(entity: "RSSFeedUrl", predicate: NSPredicate(format: "url == %@", url))
             let feedUrl:RSSFeedUrl? = (feedUrls?.first as? RSSFeedUrl) ?? (self?.createManagedObject(entity: RSSFeedUrl.self))
             
@@ -89,5 +89,39 @@ extension CoreDataHandler {
                 completion(false)
             }
         }
+    }
+    
+    func addFeedData(for url:String, data:[[String:String]], completion: @escaping (Bool)->Void) {
+        queue.async { [weak self] in
+            let feedUrls = self?.fetchTheData(entity: "RSSFeedUrl", predicate: NSPredicate(format: "url == %@", url))
+            
+            if let feedUrl:RSSFeedUrl = feedUrls?.first as? RSSFeedUrl {
+                for each in data {
+                    if let feed = self?.createOrUpdateFeedData(for: each){
+                        feed.addToFeedUrl(feedUrl)
+                        feedUrl.addToFeed(feed)
+                        self?.saveContext()
+                    }
+                }
+            }
+            else {
+                completion(false)
+            }
+            
+        }
+    }
+    
+    private func createOrUpdateFeedData(for data:[String:String]) -> RSSFeed {
+        let feeds = self.fetchTheData(entity: "RSSFeed", predicate: NSPredicate(format: "guid == %@",data["guid"] ?? data["redirectionUrl"] ?? ""))
+        let feed = feeds.first as? RSSFeed ?? self.createManagedObject(entity: RSSFeed.self)
+        
+        feed.title = data["title"]
+        feed.guid = data["guid"]
+        feed.feedDescription = data["feedDescription"]
+        feed.guid = data["guid"]
+        //feed.pubDate = 
+        feed.redirectionUrl = data["redirectionUrl"]
+        
+        return feed
     }
 }
