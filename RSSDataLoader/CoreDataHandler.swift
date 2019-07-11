@@ -112,6 +112,22 @@ extension CoreDataHandler {
         }
     }
     
+    func updateTheFeedStatus(for guid:String,withStatusOf done:Bool,and opened:Bool,completion: @escaping (Bool) -> Void) {
+        queue.async { [weak self] in
+            let feeds = self?.fetchTheData(entity: "RSSFeed", predicate: NSPredicate(format: "guid == %@",guid))
+            if let feed = feeds?.first as? RSSFeed {
+                feed.isDone = done
+                feed.isOpened = opened
+                
+                self?.saveContext()
+                completion(true)
+            }
+            else{
+                completion(false)
+            }
+        }
+    }
+    
     private func createOrUpdateFeedData(for data:[String:String]) -> RSSFeed {
         let feeds = self.fetchTheData(entity: "RSSFeed", predicate: NSPredicate(format: "guid == %@",data["guid"] ?? data["redirectionUrl"] ?? ""))
         let feed = feeds.first as? RSSFeed ?? self.createManagedObject(entity: RSSFeed.self)
@@ -135,4 +151,14 @@ extension CoreDataHandler {
         
         return feed
     }
+}
+
+//MARK:- Managed Objects Extensions
+
+extension RSSFeed:RSSFeedProtocol {
+    
+}
+
+extension RSSFeedUrl:RSSFeedsProtocol {
+    
 }

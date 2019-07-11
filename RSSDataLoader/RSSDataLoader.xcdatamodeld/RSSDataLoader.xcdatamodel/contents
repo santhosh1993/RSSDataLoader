@@ -16,7 +16,7 @@
         <relationship name="feed" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RSSFeed" inverseName="feedUrl" inverseEntity="RSSFeed" syncable="YES"/>
     </entity>
     <elements>
-        <element name="RSSFeedUrl" positionX="-63" positionY="-18" width="128" height="90"/>
         <element name="RSSFeed" positionX="-63" positionY="0" width="128" height="165"/>
+        <element name="RSSFeedUrl" positionX="-63" positionY="-18" width="128" height="90"/>
     </elements>
 </model>
