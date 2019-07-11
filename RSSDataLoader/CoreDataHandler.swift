@@ -124,8 +124,8 @@ extension CoreDataHandler {
         do {
             feed.pubDate = try RSSDateFormatter.shared.stringToDate(for: .descriptiveDate, dateStr: data["pubDate"] ?? "")
         }
-        catch FormattingError.errorOccuredWhileStringToDateTransformation{
-            assertionFailure("Error Occurred while transformation")
+        catch FormattingError.errorOccuredWhileStringToDateTransformation(let dateStr){
+            assertionFailure("Error Occurred while transformation \(dateStr)")
         }
         catch {
             assertionFailure("Unknown error occurred")

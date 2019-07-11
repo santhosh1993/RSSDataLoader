@@ -37,7 +37,7 @@ class RSSDataParser: NSObject,XMLParserDelegate {
     var foundCharacters = ""
     var currentData:[String:String] = [:]
     var parsedData:[[String:String]] = []
-    var isHeader = true
+    var isItem = false
     
     func startParsingWithContentsOfUrl(rssUrl: URL, with completion: (Bool)->Void) {
         let parser = XMLParser(contentsOf: rssUrl)
@@ -50,32 +50,24 @@ class RSSDataParser: NSObject,XMLParserDelegate {
     
     func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String] = [:]) {
         currentElement = ElementKeys(rawValue: elementName)?.getKey() ?? elementName
-        
-        if currentElement  == "item"  || currentElement == "entity" {
-            if !isHeader {
-                parsedData.append(currentData)
-            }
-            
-            isHeader = false
-        }
-        
-        if !isHeader {
-            if currentElement == "media:thumbnail" || currentElement == "media:content" {
-                foundCharacters += attributeDict["url"]!
-            }
+        if currentElement == "item" {
+            isItem = true
+            currentData = [:]
         }
     }
     
     func parser(_ parser: XMLParser, foundCharacters string: String) {
-        if !isHeader {
-            if let _ = ElementKeys.init(rawValue: currentElement) {
-                foundCharacters += string
-            }
+        if isItem {
+            foundCharacters += string
         }
     }
     
     func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
-        if !foundCharacters.isEmpty {
+        if elementName == "item"{
+            parsedData.append(currentData)
+            isItem = false
+        }
+        else if !foundCharacters.isEmpty{
             foundCharacters = foundCharacters.trimmingCharacters(in: .whitespacesAndNewlines)
             currentData[currentElement] = foundCharacters
             foundCharacters = ""

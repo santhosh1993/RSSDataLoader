@@ -27,7 +27,6 @@ public class RSSDataLoader: NSObject {
         self.shared.dataHandler.addUrl(url: url, title: title) {(status) in
             if let requestUrl = URL(string: url){
                 self.shared.parser.startParsingWithContentsOfUrl(rssUrl: requestUrl, with: { (status) in
-                    print(self.shared.parser.parsedData)
                     self.shared.dataHandler.addFeedData(for: url, data: self.shared.parser.parsedData, completion: { (status) in
                         callBack.completion(status: status)
                     })

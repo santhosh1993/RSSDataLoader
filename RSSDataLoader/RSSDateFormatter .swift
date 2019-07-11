@@ -9,11 +9,11 @@
 import Foundation
 
 enum FormatterStyle:String {
-    case descriptiveDate = "E, dd MMM yyyy hh:mm:ss zzz"
+    case descriptiveDate = "E, dd MMM yyyy HH:mm:ss zzz"
 }
 
 enum FormattingError:Error {
-    case errorOccuredWhileStringToDateTransformation
+    case errorOccuredWhileStringToDateTransformation(String)
 }
 
 class RSSDateFormatter {
@@ -31,7 +31,7 @@ class RSSDateFormatter {
             return date
         }
         else{
-            throw FormattingError.errorOccuredWhileStringToDateTransformation
+            throw FormattingError.errorOccuredWhileStringToDateTransformation(dateStr)
         }
     }
 }
