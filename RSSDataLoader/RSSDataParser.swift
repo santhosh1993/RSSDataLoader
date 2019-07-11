@@ -68,7 +68,7 @@ class RSSDataParser: NSObject,XMLParserDelegate {
     
     func parser(_ parser: XMLParser, foundCharacters string: String) {
         if !isHeader {
-            if ["title","link","description","pubDate","content","author","dc:creator","content:encoded","guid"].contains(currentElement) {
+            if let _ = ElementKeys.init(rawValue: currentElement) {
                 foundCharacters += string
             }
         }

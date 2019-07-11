@@ -103,6 +103,7 @@ extension CoreDataHandler {
                         self?.saveContext()
                     }
                 }
+                completion(true)
             }
             else {
                 completion(false)
@@ -119,7 +120,17 @@ extension CoreDataHandler {
         feed.guid = data["guid"]
         feed.feedDescription = data["feedDescription"]
         feed.guid = data["guid"]
-        //feed.pubDate = 
+        
+        do {
+            feed.pubDate = try RSSDateFormatter.shared.stringToDate(for: .descriptiveDate, dateStr: data["pubDate"] ?? "")
+        }
+        catch FormattingError.errorOccuredWhileStringToDateTransformation{
+            assertionFailure("Error Occurred while transformation")
+        }
+        catch {
+            assertionFailure("Unknown error occurred")
+        }
+        
         feed.redirectionUrl = data["redirectionUrl"]
         
         return feed

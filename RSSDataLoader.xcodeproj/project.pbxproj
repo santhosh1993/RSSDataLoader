@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B54545DD22D4A2E100132E6B /* RSSDataParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54545DC22D4A2E100132E6B /* RSSDataParser.swift */; };
+		B54545DF22D60C1C00132E6B /* RSSDateFormatter .swift in Sources */ = {isa = PBXBuildFile; fileRef = B54545DE22D60C1C00132E6B /* RSSDateFormatter .swift */; };
 		B58DE44B22CCD985001A80BB /* RSSDataLoader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B58DE44122CCD985001A80BB /* RSSDataLoader.framework */; };
 		B58DE45022CCD985001A80BB /* RSSDataLoaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58DE44F22CCD985001A80BB /* RSSDataLoaderTests.swift */; };
 		B58DE45222CCD985001A80BB /* RSSDataLoader.h in Headers */ = {isa = PBXBuildFile; fileRef = B58DE44422CCD985001A80BB /* RSSDataLoader.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -29,6 +30,7 @@
 
 /* Begin PBXFileReference section */
 		B54545DC22D4A2E100132E6B /* RSSDataParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSSDataParser.swift; sourceTree = "<group>"; };
+		B54545DE22D60C1C00132E6B /* RSSDateFormatter .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RSSDateFormatter .swift"; sourceTree = "<group>"; };
 		B58DE44122CCD985001A80BB /* RSSDataLoader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RSSDataLoader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B58DE44422CCD985001A80BB /* RSSDataLoader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RSSDataLoader.h; sourceTree = "<group>"; };
 		B58DE44522CCD985001A80BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 				B58DE46D22CDDF77001A80BB /* CoreDataHandler.swift */,
 				B5CF275C22D346FC00E4979B /* ServiceRequest.swift */,
 				B54545DC22D4A2E100132E6B /* RSSDataParser.swift */,
+				B54545DE22D60C1C00132E6B /* RSSDateFormatter .swift */,
 			);
 			path = RSSDataLoader;
 			sourceTree = "<group>";
@@ -220,6 +223,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B54545DF22D60C1C00132E6B /* RSSDateFormatter .swift in Sources */,
 				B58DE45D22CCDB69001A80BB /* RSSDataLoader.xcdatamodeld in Sources */,
 				B5CF275D22D346FC00E4979B /* ServiceRequest.swift in Sources */,
 				B54545DD22D4A2E100132E6B /* RSSDataParser.swift in Sources */,
