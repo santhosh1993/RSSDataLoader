@@ -112,12 +112,12 @@ extension CoreDataHandler {
         }
     }
     
-    func updateTheFeedStatus(for guid:String,withStatusOf done:Bool,and opened:Bool,completion: @escaping (Bool) -> Void) {
+    func updateTheFeedStatus(for guid:String,withStatusOf done:Bool? ,and opened:Bool? ,completion: @escaping (Bool) -> Void) {
         queue.async { [weak self] in
             let feeds = self?.fetchTheData(entity: "RSSFeed", predicate: NSPredicate(format: "guid == %@",guid))
             if let feed = feeds?.first as? RSSFeed {
-                feed.isDone = done
-                feed.isOpened = opened
+                feed.isDone = done ?? feed.isDone
+                feed.isOpened = opened ?? feed.isOpened
                 
                 self?.saveContext()
                 completion(true)

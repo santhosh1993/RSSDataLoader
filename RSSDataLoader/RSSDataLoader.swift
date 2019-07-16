@@ -14,6 +14,8 @@ public protocol RSSFeedProtocol {
     var title:String? {get}
     var pubDate:Date? {get}
     var guid:String? {get}
+    var isDone:Bool {get}
+    var isOpened:Bool {get}
 }
 
 public protocol RSSFeedsProtocol {
@@ -22,7 +24,7 @@ public protocol RSSFeedsProtocol {
     var feed:NSSet? {get}
 }
 
-public protocol RSSDataLoaderCallback {
+public protocol RSSDataLoaderProtocol {
     func completion(status:Bool)
     func dataGotUpdated()
 }
@@ -31,13 +33,17 @@ public class RSSDataLoader: NSObject {
     static let shared = RSSDataLoader()
     let dataHandler = CoreDataHandler()
     let parser = RSSDataParser()
-    var callBack:RSSDataLoaderCallback?
+    var callBack:RSSDataLoaderProtocol?
     
     private override init() {
         super.init()
     }
     
-    public static func addNewRSSFeed(url:String, title:String, callBack:RSSDataLoaderCallback){
+    public static func setTheCallBack(with inst:RSSDataLoaderProtocol) {
+        self.shared.callBack = inst
+    }
+    
+    public static func addNewRSSFeed(url:String, title:String, callBack:RSSDataLoaderProtocol){
         self.shared.callBack = callBack
         self.shared.dataHandler.addUrl(url: url, title: title) {(status) in
             if let requestUrl = URL(string: url){
@@ -66,8 +72,8 @@ public class RSSDataLoader: NSObject {
         }
     }
     
-    public static func updateTheState(for feed:RSSFeedProtocol,withStatusOf done:Bool,and opened:Bool) {
-        self.shared.dataHandler.updateTheFeedStatus(for: feed.guid ?? "", withStatusOf: done, and: opened) { (status) in
+    public static func updateTheState(for feed:RSSFeedProtocol,isDone :Bool? ,isOpened:Bool? ) {
+        self.shared.dataHandler.updateTheFeedStatus(for: feed.guid ?? "", withStatusOf: isDone, and: isOpened) { (status) in
             self.shared.callBack?.dataGotUpdated()
         }
     }
