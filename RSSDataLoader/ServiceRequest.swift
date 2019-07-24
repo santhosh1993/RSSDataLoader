@@ -8,6 +8,10 @@
 
 import Foundation
 
+enum ServiceRequestError: Error {
+    case urlError
+}
+
 protocol ServiceRequestCallBack {
     func completion(_ response:(Data?,URLResponse?,Error?))
 }
@@ -23,7 +27,7 @@ class ServiceRequest {
             }
         }
         else {
-            callBack?.completion((nil,nil,nil))
+            callBack?.completion((nil,nil,ServiceRequestError.urlError))
         }
     }
 }

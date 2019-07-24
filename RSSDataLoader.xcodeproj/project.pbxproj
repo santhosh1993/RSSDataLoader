@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B534238E22DDD86800FB37B7 /* RSSAutoDiscovery.swift in Sources */ = {isa = PBXBuildFile; fileRef = B534238D22DDD86800FB37B7 /* RSSAutoDiscovery.swift */; };
 		B54545DD22D4A2E100132E6B /* RSSDataParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54545DC22D4A2E100132E6B /* RSSDataParser.swift */; };
 		B54545DF22D60C1C00132E6B /* RSSDateFormatter .swift in Sources */ = {isa = PBXBuildFile; fileRef = B54545DE22D60C1C00132E6B /* RSSDateFormatter .swift */; };
 		B58DE44B22CCD985001A80BB /* RSSDataLoader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B58DE44122CCD985001A80BB /* RSSDataLoader.framework */; };
@@ -29,6 +30,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B534238D22DDD86800FB37B7 /* RSSAutoDiscovery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSSAutoDiscovery.swift; sourceTree = "<group>"; };
 		B54545DC22D4A2E100132E6B /* RSSDataParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSSDataParser.swift; sourceTree = "<group>"; };
 		B54545DE22D60C1C00132E6B /* RSSDateFormatter .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RSSDateFormatter .swift"; sourceTree = "<group>"; };
 		B58DE44122CCD985001A80BB /* RSSDataLoader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RSSDataLoader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -93,6 +95,7 @@
 				B5CF275C22D346FC00E4979B /* ServiceRequest.swift */,
 				B54545DC22D4A2E100132E6B /* RSSDataParser.swift */,
 				B54545DE22D60C1C00132E6B /* RSSDateFormatter .swift */,
+				B534238D22DDD86800FB37B7 /* RSSAutoDiscovery.swift */,
 			);
 			path = RSSDataLoader;
 			sourceTree = "<group>";
@@ -224,6 +227,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B54545DF22D60C1C00132E6B /* RSSDateFormatter .swift in Sources */,
+				B534238E22DDD86800FB37B7 /* RSSAutoDiscovery.swift in Sources */,
 				B58DE45D22CCDB69001A80BB /* RSSDataLoader.xcdatamodeld in Sources */,
 				B5CF275D22D346FC00E4979B /* ServiceRequest.swift in Sources */,
 				B54545DD22D4A2E100132E6B /* RSSDataParser.swift in Sources */,

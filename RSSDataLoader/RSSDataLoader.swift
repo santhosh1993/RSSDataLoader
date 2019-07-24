@@ -84,5 +84,11 @@ public class RSSDataLoader: NSObject {
         }
         return []
     }
+    
+    public static func deleteFeedDate(before: Date) {
+        shared.dataHandler.deleteTheOldFeed(beforeDate: before) {
+            self.shared.callBack?.dataGotUpdated()
+        }
+    }
 
 }
