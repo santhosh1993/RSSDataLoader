@@ -140,15 +140,24 @@ extension CoreDataHandler {
         }
     }
     
+    func deleteDataForFeed(guid: String, completion: @escaping (()-> Void)) {
+        queue.async { [weak self] in
+            if let feeds = self?.fetchTheData(entity: "RSSFeed", predicate: NSPredicate(format: "guid == %@",guid)) as? [RSSFeed], let feed = feeds.first {
+                feed.isUnWanted = true
+                self?.saveContext()
+                completion()
+            }
+        }
+    }
+    
     private func createOrUpdateFeedData(for data:[String:String]) -> RSSFeed {
         let feeds = self.fetchTheData(entity: "RSSFeed", predicate: NSPredicate(format: "guid == %@",data["guid"] ?? data["redirectionUrl"] ?? ""))
         let feed = feeds.first as? RSSFeed ?? self.createManagedObject(entity: RSSFeed.self)
         
         feed.title = data["title"]
-        feed.guid = data["guid"]
+        feed.guid = data["guid"] ?? data["redirectionUrl"] ?? UUID().uuidString
         feed.feedDescription = data["feedDescription"]
-        feed.guid = data["guid"]
-        
+
         do {
             feed.pubDate = try RSSDateFormatter.shared.stringToDate(for: .descriptiveDate, dateStr: data["pubDate"] ?? "")
         }

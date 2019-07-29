@@ -16,6 +16,7 @@ public protocol RSSFeedProtocol {
     var guid:String? {get}
     var isDone:Bool {get}
     var isOpened:Bool {get}
+    var isUnWanted:Bool {get}
 }
 
 public protocol RSSFeedsProtocol {
@@ -66,7 +67,7 @@ public class RSSDataLoader: NSObject {
             if let urlStr = feedUrl.url,
                 let requestUrl = URL(string: urlStr) {
                 self.shared.parser.startParsingWithContentsOfUrl(rssUrl: requestUrl) { (status) in
-                    self.shared.callBack?.dataGotUpdated()
+                    shared.callBack?.dataGotUpdated()
                 }
             }
         }
@@ -74,7 +75,7 @@ public class RSSDataLoader: NSObject {
     
     public static func updateTheState(for feed:RSSFeedProtocol,isDone :Bool? ,isOpened:Bool? ) {
         self.shared.dataHandler.updateTheFeedStatus(for: feed.guid ?? "", withStatusOf: isDone, and: isOpened) { (status) in
-            self.shared.callBack?.dataGotUpdated()
+            shared.callBack?.dataGotUpdated()
         }
     }
     
@@ -87,7 +88,13 @@ public class RSSDataLoader: NSObject {
     
     public static func deleteFeedDate(before: Date) {
         shared.dataHandler.deleteTheOldFeed(beforeDate: before) {
-            self.shared.callBack?.dataGotUpdated()
+            shared.callBack?.dataGotUpdated()
+        }
+    }
+    
+    public static func deleteFeedData(guid: String) {
+        shared.dataHandler.deleteDataForFeed(guid: guid) {
+            shared.callBack?.dataGotUpdated()
         }
     }
 
