@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "RSSDataLoader"
-  spec.version      = "0.0.1"
+  spec.version      = "0.0.2"
   spec.summary      = "A short description of RSSDataLoader."
 
   # This description is used to generate tags and improve search results.
@@ -64,6 +64,7 @@ Pod::Spec.new do |spec|
 
   # spec.platform     = :ios
   # spec.platform     = :ios, "5.0"
+  spec.swift_version = "4.2"
 
   #  When using multiple platforms
    spec.ios.deployment_target = "10.0"
@@ -89,9 +90,11 @@ Pod::Spec.new do |spec|
   #  Not including the public_header_files will make all headers public.
   #
 
-  spec.source_files  = "RSSDataLoader/*.{h,m,swift,storyboard,png}","RSSFeederLogin/Login/*.{h,m,swift,storyboard,png}"
+  spec.source_files  = "RSSDataLoader/*.{h,m,swift,storyboard,png}","RSSDataLoader/RSSDataLoader.xcdatamodeld","RSSDataLoader/RSSDataLoader.xcdatamodeld/*.xcdatamodel"
   spec.exclude_files = "Classes/Exclude"
-
+  spec.resources = [ "RSSDataLoader/RSSDataLoader.xcdatamodeld","RSSDataLoader/RSSDataLoader.xcdatamodeld/*.xcdatamodel"]
+  
+  spec.preserve_paths = "RSSDataLoader/RSSDataLoader.xcdatamodeld"
   # spec.public_header_files = "Classes/**/*.h"
 
 
