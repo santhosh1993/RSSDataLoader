@@ -2,5 +2,11 @@
 
 Action Items
 
-- Pods integration
-- Creating all the tables required
+- Update the ReadMe
+
+For Installing using Pods use
+
+```
+  pod 'RSSDataLoader' , :git => 'https://github.com/santhosh1993/RSSDataLoader.git' ,:tag => "0.0.2"
+```
+
